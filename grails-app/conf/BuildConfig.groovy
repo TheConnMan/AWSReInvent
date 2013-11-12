@@ -49,6 +49,9 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
         // runtime 'mysql:mysql-connector-java:5.1.24'
+		runtime "com.amazonaws:aws-java-sdk:1.5.4"
+		compile "org.springframework.security:spring-security-core:3.1.4.RELEASE"
+		//compile ":spring-security-ui:1.0-RC1"
     }
 
     plugins {
