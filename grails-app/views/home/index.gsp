@@ -21,7 +21,8 @@
 						<td>Table Name: <input type="text" id="tablename"></td>
 						<td><button type="button">Describe</button></td>
 						<td><button type="button">Show Indexes</button></td>
-						<td>Select columns: <g:select name="selectOptions" from="${columns}" value="*" /></td>
+						<td>Select table: <select id="tables"></select></td>
+						<td>Select columns: <select id="selectOptions"></select></td>
 						<td>Count: <input type="checkbox" id="count"></td>
 						<td><button type="button" onclick="showTables()">Show Tables</button></td>
 						<td><button type="button">Show Processes</button></td>
@@ -47,9 +48,29 @@
 			</div>
 		</div>
 		<script>
+			var parsed;
 			$(document).ready(function() {
 				$("#selectOptions").multiselect();
+				var tables = '${tables}'
+				var tables2 = tables.split('&quot;').join('"')
+				parsed = $.parseJSON(tables2)
+				var options = ""
+				for (i in parsed) {
+					options += "<option value='" + i + "'>" + i + "</option>";
+				}
+				$('#tables').find('option').remove().end().append(options);
+				refreshColumns();
 			});
+
+			$('#tables').change(refreshColumns())
+			
+			function refreshColumns() {
+				var options = "<option value='*'>*</option>";
+				for (i in parsed[$('#tables').val()]) {
+					options += "<option value='" + parsed[$('#tables').val()][i] + "'>" + parsed[$('#tables').val()][i] + "</option>";
+				}
+				$('#selectOptions').find('option').remove().end().append(options).multiselect("refresh");
+			}
 			
 		</script>
 	</body>

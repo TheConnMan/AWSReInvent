@@ -7,7 +7,6 @@ function showTables() {
 	$('#helper-query').html(query);
 	$('#helper').css('display', 'block');
 	$('#helper-results').html('Test Results');
-	console.log($('#selectOptions').val())
 }
 
 function generateSQL() {
