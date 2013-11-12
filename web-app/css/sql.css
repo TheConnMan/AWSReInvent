@@ -1,0 +1,11 @@
+#query-box {
+	padding: 10px;
+}
+
+#sql-results-box {
+	padding: 5px;
+}
+
+#sql-results {
+	border: 1px black;
+}
