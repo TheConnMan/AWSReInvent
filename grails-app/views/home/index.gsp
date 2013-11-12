@@ -19,11 +19,12 @@
 				<table>
 					<tr>
 						<td>Table Name: <input type="text" id="tablename"></td>
-						<td><button type="button">Describe</button></td>
+						<td><button type="button" onclick="ajax('${g.createLink(controller:'home',action:'queryDB')}')">Describe</button></td>
 						<td><button type="button">Show Indexes</button></td>
 						<td>Select table: <select id="tables"></select></td>
-						<td>Select columns: <select id="selectOptions"></select></td>
+						<td>Select columns: <select multiple id="selectOptions"></select></td>
 						<td>Count: <input type="checkbox" id="count"></td>
+						<td>Limit: <input type="text" id="limit"></td>
 						<td><button type="button" onclick="showTables()">Show Tables</button></td>
 						<td><button type="button">Show Processes</button></td>
 					</tr>
