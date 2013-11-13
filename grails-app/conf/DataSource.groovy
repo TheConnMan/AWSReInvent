@@ -4,6 +4,13 @@ dataSource {
     username = "sa"
     password = ""
 }
+dataSource2 {
+	driverClassName = 'org.postgresql.Driver'
+	dialect = 'org.hibernate.dialect.PostgreSQLDialect'
+	username = 'dcpoc'
+	password = 'dcpoc123'
+	url = 'jdbc:postgresql://ec2-54-205-113-208.compute-1.amazonaws.com:5432/dcpoc'
+}
 hibernate {
     cache.use_second_level_cache = true
     cache.use_query_cache = false
@@ -17,6 +24,9 @@ environments {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+        }
+        dataSource2 {
+            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
         }
     }
     test {

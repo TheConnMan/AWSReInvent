@@ -1,8 +1,9 @@
 package org.donorschoose
 
 import grails.converters.JSON
-import java.sql.*;
-import groovy.sql.*;
+import groovy.grape.Grape
+import groovy.sql.Sql
+import org.postgresql.Driver
 
 class HomeController {
 
@@ -18,24 +19,17 @@ class HomeController {
 	def SQL() { }
 	
 	def queryDB() {
-		//Class.forName("org.postgresql.Driver");
-		String connectionURL = "jdbc:postgresql://ec2-54-205-113-208.compute-1.amazonaws.com/dcpoc";
-		Properties props = new Properties();
-		props.setProperty("user","dcpoc");
-		props.setProperty("password","dcpoc123");
-		props.setProperty("ssl","true");
-		Connection connection = DriverManager.getConnection(connectionURL, props);
-		Statement statement = null;
-		ResultSet rs = null;
-		int updateQuery = 0;
-		statement = connection.createStatement();
-		String QueryString = "SELECT * from dcpoc;";
-		rs = statement.executeQuery(QueryString);
-		while (rs.next()) {
-			System.out.println(rs);
+		Class.forName("org.postgresql.Driver");
+		// Groovy way of creating a DB connection
+		def db = Sql.newInstance (
+			 'jdbc:postgresql://ec2-54-205-113-208.compute-1.amazonaws.com:5432/dcpoc',
+			 'dcpoc',
+			 'dcpoc123',
+			 'org.postgresql.Driver')
+		 
+		// even Groovier...
+		db.eachRow('SELECT * FROM mytable') {
+			println  it.mycolumnname
 		}
-		rs.close();
-		statement.close();
-		connection.close();
 	}
 }
