@@ -7,5 +7,19 @@
 }
 
 #sql-results {
-	border: 1px black;
+	
+}
+
+#full-helper {
+	padding: 10px;
+	background-color: lightgrey;
+	border-radius: 25px;
+}
+
+table {
+	border-top: none;
+}
+
+button {
+	border-radius: 5px;
 }

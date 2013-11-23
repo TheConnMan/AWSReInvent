@@ -9,4 +9,8 @@ class NormalizedTeacher {
     static constraints = {
 		
     }
+	
+	static mapping = {
+		//datasource 'postgres'
+	}
 }

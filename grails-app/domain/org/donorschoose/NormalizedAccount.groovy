@@ -9,4 +9,8 @@ class NormalizedAccount {
 
     static constraints = {
     }
+	
+	static mapping = {
+		//datasource 'postgres'
+	}
 }

@@ -16,4 +16,8 @@ class NormalizedGiftcard {
 
     static constraints = {
     }
+	
+	static mapping = {
+		//datasource 'postgres'
+	}
 }

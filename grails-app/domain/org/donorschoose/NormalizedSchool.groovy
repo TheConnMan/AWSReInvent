@@ -27,4 +27,8 @@ class NormalizedSchool {
 
     static constraints = {
     }
+	
+	static mapping = {
+		//datasource 'postgres'
+	}
 }

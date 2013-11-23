@@ -14,4 +14,8 @@ class NormalizedResource {
 
     static constraints = {
     }
+	
+	static mapping = {
+		//datasource 'postgres'
+	}
 }

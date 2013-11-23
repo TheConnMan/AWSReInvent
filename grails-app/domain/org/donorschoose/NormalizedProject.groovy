@@ -42,4 +42,8 @@ class NormalizedProject {
 
     static constraints = {
     }
+	
+	static mapping = {
+		//datasource 'postgres'
+	}
 }

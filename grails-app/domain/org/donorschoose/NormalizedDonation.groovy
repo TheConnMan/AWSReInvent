@@ -25,6 +25,7 @@ class NormalizedDonation {
 	boolean thank_you_packet_mailed 
 
     static mapping = { 
-        donation_timestamp  sqlType: 'timestamp' 
-    } 
+        donation_timestamp  sqlType: 'timestamp'
+		//datasource 'postgres'
+    }
 }
